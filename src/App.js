@@ -19,6 +19,10 @@ const StyledButton = styled.button `
       }
 `;
 
+  const Heading = styled.h1 `
+      color: ${props => props.head ? 'black': 'red'}
+  `;
+
 class App extends Component {
   state = {
     name: '',
@@ -28,7 +32,7 @@ class App extends Component {
      { id: 'jjsjsi', name: 'Namwanza', age: '27 years old'},
      { id: 'uysusu', name: 'Namatovu', age: '25 years old'}
     ],
-    showTask: false
+    showTask: true
   }
 
   showTaskHandler = () => {
@@ -58,8 +62,8 @@ class App extends Component {
     
     return (
       <div className="App">
-         <h1>React Task Manager</h1>
-
+         <Heading head = {this.state.showTask ? true: undefined}>React Task Manager</Heading>
+ 
         <Button 
           onClick = {this.showTaskHandler}
           style = {{textTransform: 'capitalize', margin: '10px'}}
